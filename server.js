@@ -21,12 +21,10 @@ app.post("/pusher/auth", (req, res) => {
     req.body.channel_name,
     presenceData
   );
-  res.header("Access-Control-Allow-Origin", null);
   res.send(auth);
 });
 
 app.post("/pusher/trigger/time", (req, res) => {
-  res.header("Access-Control-Allow-Origin", null);
   pusher.trigger("private-ch", "time", { hitServer: Date.now() });
   res.send(true);
 });
